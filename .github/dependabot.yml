@@ -1,0 +1,13 @@
+version: 2
+
+# Uncomment and configure the ecosystems used by the project.
+updates:
+  # - package-ecosystem: "npm"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "weekly"
+
+  # - package-ecosystem: "pip"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "weekly"
