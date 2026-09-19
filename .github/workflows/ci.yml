@@ -10,10 +10,78 @@ permissions:
   contents: read
 
 jobs:
-  validate:
-    name: Validate repository
+  build:
+    name: Build
     runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
 
+      - name: Build
+        shell: bash
+        run: |
+          echo "Add the project build command here."
+          echo "Examples: make build, npm run build, cargo build, mvn package"
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Lint
+        shell: bash
+        run: |
+          echo "Add the project lint/format command here."
+          echo "Examples: make lint, npm run lint, ruff check ., cargo clippy"
+
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Test
+        shell: bash
+        run: |
+          echo "Add the project test command here."
+          echo "Examples: make test, npm test, pytest, cargo test"
+
+  static-analysis:
+    name: Static Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Static analysis
+        shell: bash
+        run: |
+          echo "Add the project static-analysis command here."
+          echo "Examples: mypy, clang-tidy, eslint, cargo clippy, compiler warnings"
+
+  security:
+    name: Security Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Dependency review
+        if: github.event_name == 'pull_request'
+        uses: actions/dependency-review-action@v4
+
+      - name: Security scan
+        shell: bash
+        run: |
+          echo "Add the project security scan here."
+          echo "Examples: npm audit, pip-audit, cargo audit, trivy, semgrep"
+
+  repository-checks:
+    name: Repository Checks
+    runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -24,10 +92,4 @@ jobs:
           set -e
           test -f README.md
           test -f .gitignore
-
-      # Add project-specific setup, lint, test, and build steps below.
-      # Examples:
-      # - Install dependencies
-      # - Run formatter/linter
-      # - Run unit/integration tests
-      # - Build the project
+          test -f LICENSE
