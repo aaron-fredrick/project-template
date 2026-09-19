@@ -1,0 +1,30 @@
+name: Documentation
+description: Report missing, unclear, incorrect, or outdated documentation.
+title: "[Docs]: "
+labels:
+  - documentation
+body:
+  - type: textarea
+    id: issue
+    attributes:
+      label: Documentation Issue
+      description: What documentation needs to be added, changed, or clarified?
+    validations:
+      required: true
+
+  - type: textarea
+    id: location
+    attributes:
+      label: Location
+      description: Where is the relevant documentation?
+      placeholder: File path, page, section, or link.
+    validations:
+      required: false
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested Change
+      description: If you have a proposed wording or structure, describe it here.
+    validations:
+      required: false
