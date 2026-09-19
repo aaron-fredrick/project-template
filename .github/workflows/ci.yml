@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate repository
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check required files
+        shell: bash
+        run: |
+          set -e
+          test -f README.md
+          test -f .gitignore
+
+      # Add project-specific setup, lint, test, and build steps below.
+      # Examples:
+      # - Install dependencies
+      # - Run formatter/linter
+      # - Run unit/integration tests
+      # - Build the project
