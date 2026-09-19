@@ -1,0 +1,36 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Build and generated output
+build/
+dist/
+out/
+
+# Dependency directories
+node_modules/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Coverage
+.coverage
+coverage/
