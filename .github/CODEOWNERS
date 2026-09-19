@@ -5,3 +5,9 @@
 # Example:
 # * @username
 # * @organization/team-name
+
+# Specific ownership examples:
+# /src/ @username
+# /docs/ @organization/team-name
+# /.github/ @username
+# /src/api/ @backend-team
